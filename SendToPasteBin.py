@@ -1,4 +1,5 @@
 import sublime, sublime_plugin
+import os
 from urllib import urlencode, urlopen
 
 PASTEBIN_URL = "http://pastebin.com/api/api_post.php"	
@@ -79,7 +80,7 @@ class SendToPasteBinCommand( sublime_plugin.TextCommand ):
 			paste_name = self.view.file_name()				# Get full file name (Path + Base Name)
 
 			if paste_name is not  None: 					# Check if file exists on disk
-				paste_name = 	os.path.basename(paste_name)	# Extract base name
+				paste_name = os.path.basename(paste_name)	# Extract base name
 			else:
 				paste_name = "Untitled"
 
